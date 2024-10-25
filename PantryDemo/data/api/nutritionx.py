@@ -16,7 +16,7 @@ def get_nutritionx(query):
         "Content-Type": "application/json",
         "x-app-id": app_id,
         "x-app-key": app_key,
-        "x-remote-user-id": 0
+        "x-remote-user-id": '0'
     }
 
     try:

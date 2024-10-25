@@ -1,7 +1,14 @@
 from django.shortcuts import render
+from ..data.api.nutritionx import get_nutritionx
 
 def welcome(request):
     """View function for the welcome page."""
+    if request.method == 'GET':
+        query = request.GET.get('query')
+        if query:
+            data = get_nutritionx(query)
+            print(data)
+            return render(request, 'welcome/results.html', {'data': data})
     return render(request, 'welcome/welcome.html')
 
 def about(request):

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nutrition Information</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Common Foods</h2>
+        <div class="row">
+            {% for food in data.common %}
+            <div class="col-md-4">
+                <div class="card mb-4" data-toggle="collapse" data-target="#collapse{{ forloop.counter }}" data-food="{{ food }}">
+                    <img src="{{ food.photo.thumb }}" class="card-img-top" alt="Food Image">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ food.food_name }}</h5>
+                        <p class="card-text">
+                            Serving Size: {{ food.serving_qty }} {{ food.serving_unit }}<br>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <h2>Branded Foods</h2>
+        <div class="row">
+            {% for food in data.branded %}
+            <div class="col-md-4">
+                <div class="card mb-4" data-toggle="collapse" data-target="#collapse{{ forloop.counter }}" data-food="{{ food }}">
+                    <img src="{{ food.photo.thumb }}" class="card-img-top" alt="Food Image">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ food.brand_name_item_name }}</h5>
+                        <p class="card-text">
+                            Serving Size: {{ food.serving_qty }} {{ food.serving_unit }}<br>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
